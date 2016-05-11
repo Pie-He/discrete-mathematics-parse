@@ -1,0 +1,4 @@
+(\not ((A_{1} \and A_{2}) \imply B))
+(A \or B)
+\not \not \not n
+(((\not A) \and ( \not B)) \and ( \not C))
