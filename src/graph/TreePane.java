@@ -49,6 +49,10 @@ import parse.Parse.Node;
  * @author Udo Borkowski (ub@abego.org)
  */
 public class TreePane extends JComponent {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final TreeLayout<Node> treeLayout;
 
 	private TreeForTreeLayout<Node> getTree() {
