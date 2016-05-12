@@ -2,3 +2,4 @@
 (A \or B)
 \not \not \not n
 (((\not A) \and ( \not B)) \and ( \not C))
+((((\not A) \and ( \not B)) \and ( \not C)) \and (((\not A) \and ( \not B)) \and ( \not C)))

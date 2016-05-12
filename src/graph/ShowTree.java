@@ -36,6 +36,7 @@ import java.util.LinkedList;
 import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 import org.abego.treelayout.TreeForTreeLayout;
 import org.abego.treelayout.TreeLayout;
@@ -45,17 +46,24 @@ import org.abego.treelayout.util.DefaultTreeForTreeLayout;
 import parse.Parse.Node;
 public class ShowTree {
 	static int i;
-	private static void showInDialog(JComponent panel) {
+	private static void showInFrame(JComponent panel) {
 		JFrame frame = new JFrame(i+"");
 		Container contentPane = frame.getContentPane();
 		((JComponent) contentPane).setBorder(BorderFactory.createEmptyBorder(
 				10, 10, 10, 10));
-		contentPane.add(panel);
 		//Frame.pack();
+		//contentPane.add(panel);
+		JScrollPane jsp=new JScrollPane();
+		jsp.getViewport().add(panel);
+		contentPane.add(jsp);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLocationRelativeTo(null);
 		frame.setSize(600, 300);
 		frame.setVisible(true);
+		
+		//jsp.add(panel);
+		//contentPane.add(jsp);
+		//frame.getContentPane().add(new JScrollPane());
 		i++;
 	}
 
@@ -91,6 +99,6 @@ public class ShowTree {
 
 		// Create a panel that draws the nodes and edges and show the panel
 		TreePane panel = new TreePane(treeLayout);
-		showInDialog(panel);
+		showInFrame(panel);
 	}
 }
