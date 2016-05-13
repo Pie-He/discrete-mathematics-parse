@@ -21,7 +21,10 @@ public class Parse {
 	LinkedList<Symbol> symbols = new LinkedList<Symbol>();
 	LinkedList<Node> tree = new LinkedList<Node>();
 
+	public static String currentEx;
+
 	public void parse(String str) {
+		currentEx = str;
 		boolean flag = true;
 		Pattern pattern = Pattern.compile(REG);
 		Matcher matcher = pattern.matcher(str);
@@ -36,28 +39,29 @@ public class Parse {
 		while (matcher.find()) {
 			String s = matcher.group();
 			index = str.indexOf(s, index);
-			//System.out.println("index1:"+index); 
+			// System.out.println("index1:"+index);
 			index += s.length();
-			//System.out.println(s);
-			//System.out.println("index:"+index);
+			// System.out.println(s);
+			// System.out.println("index:"+index);
 			if (Pattern.matches(LETTER_REG, s)) {
 				symbols.add(new Symbol(s, Type.LETTER));
 			} else if (Pattern.matches(CONNECTIVE_REG, s)) {
 				try {
 					if (str.charAt(index) != ' ') {
-						//System.out.println(index);
+						// System.out.println(index);
 						System.out.println("not well defined");
 						return;
 					}
-					if ((!s.equals("\\not"))&&str.charAt(index-s.length()-1) != ' ') {
-						//System.out.println(s);
+					if ((!s.equals("\\not"))
+							&& str.charAt(index - s.length() - 1) != ' ') {
+						// System.out.println(s);
 						System.out.println("not well defined");
 						return;
 					}
 				} catch (IndexOutOfBoundsException e) {
-					//System.out.println("exception");
+					// System.out.println("exception");
 				}
-				//System.out.println("exceptionwww");
+				// System.out.println("exceptionwww");
 				symbols.add(new Symbol(s, Type.CONNECTIVE));
 			} else if (Pattern.matches(LEFT_PARENTHESE_REG, s)) {
 				symbols.add(new Symbol(s, Type.LEFT_PARENTHESE));
@@ -84,6 +88,7 @@ public class Parse {
 		}
 		// tree.stream().forEach(System.out::println);
 		ShowTree.show(tree);
+		System.out.println("well defined!");
 	}
 
 	private boolean check() {

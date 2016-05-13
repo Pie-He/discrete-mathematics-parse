@@ -1,5 +1,8 @@
-(\not ((A_{1} \and A_{2}) \imply B))
+(\not ((A_{14} \and A_{2}) \imply B))
 (A \or B)
 \not \not \not n
-(((\not A) \and ( \not B)) \and ( \not C))
-((((\not A) \and ( \not B)) \and ( \not C)) \and (((\not A) \and ( \not B)) \and ( \not C)))
+(((\not A) \and ( \not B)) \and ( \not C)
+((((\not A) \and ( \not B)) \and ( \not C) \and (((\not A) \and ( \not B)) \and ( \not C)))
+(A \or B)
+(A \eq B)
+(\not A

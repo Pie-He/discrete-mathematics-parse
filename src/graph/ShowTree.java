@@ -43,11 +43,12 @@ import org.abego.treelayout.TreeLayout;
 import org.abego.treelayout.util.DefaultConfiguration;
 import org.abego.treelayout.util.DefaultTreeForTreeLayout;
 
+import parse.Parse;
 import parse.Parse.Node;
+
 public class ShowTree {
-	static int i;
 	private static void showInFrame(JComponent panel) {
-		JFrame frame = new JFrame(i+"");
+		JFrame frame = new JFrame(Parse.currentEx);
 		Container contentPane = frame.getContentPane();
 		((JComponent) contentPane).setBorder(BorderFactory.createEmptyBorder(
 				10, 10, 10, 10));
@@ -64,7 +65,6 @@ public class ShowTree {
 		//jsp.add(panel);
 		//contentPane.add(jsp);
 		//frame.getContentPane().add(new JScrollPane());
-		i++;
 	}
 
 	private static TreeForTreeLayout<Node> getTree(LinkedList<Node> nodes) {

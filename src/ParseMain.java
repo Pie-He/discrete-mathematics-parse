@@ -11,15 +11,17 @@ public class ParseMain {
 	public static void main(String[] args) {
 		File file = new File("testunit.txt");
 		String str;
-		int i=0;
 		if (file.exists()) {
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(file));
 				while ((str = br.readLine()) != null) {
-					System.out.println(i++);
+					try{
+					System.out.println(str);
 					Parse p=new Parse();
 					p.parse(str);
-					
+					}catch(Exception e){
+						System.out.println("not well-defined!");
+					}
 				}
 				br.close();
 			} catch (IOException e) {
